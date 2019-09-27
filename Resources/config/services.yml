@@ -1,0 +1,8 @@
+services:
+    rvalin.exception_listener.exception_manager:
+        class: RValin\ExceptionListenerBundle\Manager\ExceptionManager
+        arguments: ['@rvalin.exception_listener.exception_item_provider','@doctrine.orm.entity_manager', '%rvalin.exception_listener.item_class%']
+
+    rvalin.exception_listener.exception_item_provider:
+        class: RValin\ExceptionListenerBundle\Provider\ExceptionItemProvider
+        arguments: ['@doctrine.orm.entity_manager', '%rvalin.exception_listener.item_class%']
